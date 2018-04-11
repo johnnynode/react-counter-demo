@@ -7,7 +7,7 @@ class App extends Component {
     super(props);
     this.state = {
       // 数据是在store中取
-      counter: store.getCounter()
+      counter: store.getState()
     }
   }
   
@@ -16,7 +16,7 @@ class App extends Component {
     // 第一次调用addListener是监听，返回了一个取消监听的函数
     this.listener = store.addListener(()=>{
       this.setState({
-        counter:store.getCounter()
+        counter:store.getState()
       })
     });
   }

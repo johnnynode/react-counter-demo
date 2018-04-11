@@ -8,3 +8,9 @@
 - 在store中根据匹配的action.type进行相关的操作，然后再触发事件
 - 在App.js中，组件挂载的时候监听事件，组件销毁的时候取消监听事件
 
+### flux version plus - ReduceStore
+
+- 在store中, 导入flux版的ReduceStore, 不需要再次使用自己绑定的宏和EventEmitter和初始化数据counter了
+- 通过ReduceStore不再需要自己写监听函数了，注意导出的时候通过new的方式并传入Dispatcher
+- 之后在App.js中修改获取数据的方式，通过store.getState()方法
+- ReduceStore主要是优化store的
