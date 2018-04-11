@@ -10,7 +10,8 @@ class App extends Component {
       counter: store.getCounter()
     }
   }
-
+  
+  // 在组建挂载的时候执行监听
   componentDidMount() {
     // 第一次调用addListener是监听，返回了一个取消监听的函数
     this.listener = store.addListener(()=>{
@@ -20,6 +21,7 @@ class App extends Component {
     });
   }
 
+  // 在组件unmount时，取消监听
   componentWillUnmount() {
     this.listener(); // 再次调用，取消监听
   }
