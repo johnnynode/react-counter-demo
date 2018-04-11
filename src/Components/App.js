@@ -1,31 +1,19 @@
 import React, { Component } from 'react';
 import action from '../Action';
 import store from '../Store';
+import {Container} from 'flux/utils';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // 数据是在store中取
-      counter: store.getState()
+  static getStores() {
+    return [store];
+  }
+
+  static calculateState() {
+    return {
+      counter:store.getState()
     }
   }
   
-  // 在组建挂载的时候执行监听
-  componentDidMount() {
-    // 第一次调用addListener是监听，返回了一个取消监听的函数
-    this.listener = store.addListener(()=>{
-      this.setState({
-        counter:store.getState()
-      })
-    });
-  }
-
-  // 在组件unmount时，取消监听
-  componentWillUnmount() {
-    this.listener(); // 再次调用，取消监听
-  }
-
   render() {
     return (
       <div className="App">
@@ -37,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Container.create(App);

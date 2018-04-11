@@ -1,6 +1,5 @@
 import Dispatcher from "../Dispatcher";
 import type from "../Action/type";
-import EventEmitter from 'events';
 import {ReduceStore} from 'flux/utils';
 
 class Store extends ReduceStore {
